@@ -116,7 +116,9 @@ make_perl_module () {
 	$OCS_INSTALL_DIR/perl/bin/perl Makefile.PL
 	make
 	# [ -d blib/lib/auto ] && rm -rf blib/lib/auto
-	rsync --recursive blib/lib/ $OCS_INSTALL_DIR/perl/lib/${PERL_VERSION}/
+	#rsync --recursive blib/lib/ $OCS_INSTALL_DIR/perl/lib/${PERL_VERSION}/
+    make check
+    make install
 }
 
 for url in `cat $OCS_PACKAGE_DIR/PerlModulesDownloadList.txt`
